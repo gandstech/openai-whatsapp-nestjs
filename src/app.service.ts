@@ -4,7 +4,6 @@ import { OpenArtificialIntelligence, sendTextMessage } from './utils/bot';
 @Injectable()
 export class AppService {
   facebookWebhookVerify(query: any): string {
-    console.log(process.env)
     let mode = query["hub.mode"];
     let token = query["hub.verify_token"];
     let challenge = query["hub.challenge"];

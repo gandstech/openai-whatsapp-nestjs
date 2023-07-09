@@ -1,15 +1,15 @@
 import { Configuration, OpenAIApi } from 'openai';
 import axios from 'axios';
-console.log(process.env.OPENAI_TOKEN)
-const configuration = new Configuration({
-    apiKey: process.env.OPENAI_TOKEN
-})
-const openai = new OpenAIApi(configuration);
+
 
 
 export const OpenArtificialIntelligence = async (prompt: string) => {
     return new Promise(async (resolve, reject) => {
         try {
+            const configuration = new Configuration({
+                apiKey: process.env.OPENAI_TOKEN
+            })
+            const openai = new OpenAIApi(configuration);
             const response = await openai.createChatCompletion({
                 model: "gpt-3.5-turbo",
                 messages: [{role: "user", content: prompt}],
